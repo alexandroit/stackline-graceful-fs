@@ -6,11 +6,17 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
-const npm = process.platform === 'win32' ? 'npm.cmd' : 'npm'
+const inheritedNpmCli = process.env.npm_execpath
+const useInheritedNpmCli = inheritedNpmCli && /npm-cli\.js$/iu.test(inheritedNpmCli)
+const npmCommand = useInheritedNpmCli
+  ? process.execPath
+  : process.platform === 'win32' ? 'npm.cmd' : 'npm'
+const npmPrefix = useInheritedNpmCli ? [inheritedNpmCli] : []
 const temporary = await mkdtemp(path.join(tmpdir(), 'stackline-graceful-fs-closure-'))
 
 function run (args, cwd, allowAuditFailure = false) {
-  const result = spawnSync(npm, args, {
+  const commandArgs = npmPrefix.concat(args)
+  const result = spawnSync(npmCommand, commandArgs, {
     cwd,
     encoding: 'utf8',
     timeout: 180000,
@@ -22,8 +28,14 @@ function run (args, cwd, allowAuditFailure = false) {
       NPM_CONFIG_UPDATE_NOTIFIER: 'false'
     }
   })
-  if (!allowAuditFailure)
-    assert.equal(result.status, 0, `${npm} ${args.join(' ')}\n${result.stdout}\n${result.stderr}`)
+  if (!allowAuditFailure) {
+    const executionError = result.error ? `${result.error.stack || result.error}\n` : ''
+    assert.equal(
+      result.status,
+      0,
+      `${npmCommand} ${commandArgs.join(' ')}\n${executionError}${result.stdout || ''}\n${result.stderr || ''}`
+    )
+  }
   return result
 }
 
