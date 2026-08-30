@@ -1,0 +1,69 @@
+{
+  "schema": "stackline-package-decision-v2",
+  "observedAt": "2026-08-30T02:24:12Z",
+  "decidedAt": "2026-08-30T02:40:00Z",
+  "package": "graceful-fs",
+  "upstreamVersion": "4.2.11",
+  "target": "@stackline/graceful-fs",
+  "targetVersion": "1.0.0",
+  "selectedQueueRank": 1,
+  "selectedQueueRankBasis": "OWNER_DIRECTED_RECURSIVE_DEPENDENCY_REMEDIATION",
+  "canonicalQueueRank": null,
+  "startingState": "QUALIFIED",
+  "canonicalState": "BUILDING",
+  "decision": "GO",
+  "transition": "QUALIFIED -> RESEARCHING -> BUILDING",
+  "reasonCode": "REQUIRED_ZERO_DEPENDENCY_LEAF_FOR_TWO_PUBLISHED_STACKLINE_PARENTS",
+  "reason": "The owner made recursive production-closure maintenance mandatory. graceful-fs@4.2.11 is a stale direct production edge of two published Stackline packages and has no runtime dependencies. A conservative continuation is therefore the required leaf remediation before either parent can be republished.",
+  "problem": "@stackline/fstream@1.0.0 and @stackline/fs-write-stream-atomic@1.0.0 directly install graceful-fs@4.2.11. The upstream release is clean but no longer acceptable under the owner-directed maintenance policy.",
+  "compatibilityContract": [
+    "CommonJS fs-like object and historical graceful-fs dependency key",
+    "graceful-fs 4.2.11 EMFILE/ENFILE shared queue and close-triggered retry behavior",
+    "gracefulify, streams, deep entries, descriptors and Node filesystem surface",
+    "Node 14.14 and later runtime compatibility",
+    "zero runtime, optional and peer dependencies"
+  ],
+  "remediationChanges": [
+    "removed the unsafe public >=2 GiB write extension so native writeFile validation and side effects remain authoritative",
+    "prevented callback-level EAGAIN replay for numeric O_APPEND flags",
+    "preserved historical short queue records instead of rewriting them as timed records",
+    "retained non-extensible fs namespace and stream lifecycle corrections",
+    "added direct and historical-key clean closure tests with zero-vulnerability audits"
+  ],
+  "dependencyClosure": {
+    "runtimeDependencies": 0,
+    "optionalDependencies": 0,
+    "peerDependencies": 0,
+    "status": "PASS_LOCAL",
+    "parents": [
+      "@stackline/fstream@1.0.0",
+      "@stackline/fs-write-stream-atomic@1.0.0"
+    ]
+  },
+  "historicalDecision": {
+    "decidedAt": "2026-08-29T05:30:16Z",
+    "decision": "NO_GO",
+    "reasonCode": "COMPATIBILITY_DATA_INTEGRITY_GATES_FAILED_AND_NO_SECOND_QUALIFIED_ADOPTION_TARGET",
+    "disposition": "SUPERSEDED_BY_OWNER_DIRECTED_DEPENDENCY_REMEDIATION_AFTER_BLOCKERS_WERE_REMOVED"
+  },
+  "upstreamTarball": {
+    "url": "https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.11.tgz",
+    "sha1": "4183e4e8bf08bb6e05bbb2f7d2e0c8f712ca40e3",
+    "sha256": "3961374aa161e6fed80d6f4b6aaf2fb7eafd2c9e5be34e865b375f0114dd099c",
+    "integrity": "sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ=="
+  },
+  "legalGate": {
+    "status": "PASS",
+    "releaseLicense": "ISC",
+    "currentRepositoryLicenseNotCopied": "BlueOak-1.0.0"
+  },
+  "securityGate": {
+    "productionAuditVulnerabilities": 0,
+    "sourceAuditVulnerabilities": 0,
+    "status": "PASS_LOCAL"
+  },
+  "userPinResolution": "NOT_PINNED",
+  "implementationStartedAtDecisionWrite": false,
+  "canonicalDriveRecordId": "1fSkwInY9EyfZYQCURnMdOGiTUS6jAY-v",
+  "canonicalDriveRecordUrl": "https://drive.google.com/file/d/1fSkwInY9EyfZYQCURnMdOGiTUS6jAY-v/view?usp=drivesdk"
+}

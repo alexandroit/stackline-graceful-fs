@@ -1,0 +1,40 @@
+{
+  "schema": "stackline-package-queue-transaction-proposal-v1",
+  "proposedAt": "2026-08-29T05:30:16Z",
+  "applied": true,
+  "appliedAt": "2026-08-29T05:34:55Z",
+  "appliedTo": "automation/state/package-queue.json",
+  "scopeNote": "Prepared project-locally because this lane is not authorized to modify shared automation ledgers.",
+  "removeFromQueue": "graceful-fs",
+  "appendToCompleted": {
+    "name": "graceful-fs",
+    "target": "@stackline/graceful-fs",
+    "upstreamVersion": "4.2.11",
+    "state": "NO_GO",
+    "canonicalState": "REJECTED",
+    "selectedQueueRank": 1,
+    "selectedQueueRankBasis": "EFFECTIVE_SCOUT_INTAKE_RANK",
+    "canonicalQueueRank": null,
+    "completedAt": "2026-08-29T05:30:16Z",
+    "weeklyDownloads": 170380490,
+    "downloadPeriod": "2026-08-22:2026-08-28",
+    "reasonCode": "COMPATIBILITY_DATA_INTEGRITY_GATES_FAILED_AND_NO_SECOND_QUALIFIED_ADOPTION_TARGET",
+    "userPinResolution": "NOT_PINNED",
+    "decisionRecord": "projects/graceful-fs/UPSTREAM_AUDIT.md",
+    "structuredDecisionRecord": "projects/graceful-fs/decision.json",
+    "canonicalDriveRecordId": "1fSkwInY9EyfZYQCURnMdOGiTUS6jAY-v",
+    "canonicalDriveRecordUrl": "https://drive.google.com/file/d/1fSkwInY9EyfZYQCURnMdOGiTUS6jAY-v/view?usp=drivesdk"
+  },
+  "queueAfter": [
+    { "rank": 1, "name": "querystringify" },
+    { "rank": 2, "name": "gauge" },
+    { "rank": 3, "name": "npmlog" },
+    { "rank": 4, "name": "are-we-there-yet" },
+    { "rank": 5, "name": "request" },
+    { "rank": 6, "name": "event-stream" },
+    { "rank": 7, "name": "osenv" },
+    { "rank": 8, "name": "node-libs-browser" }
+  ],
+  "requiredNextCycleAfter": null,
+  "updatedAtAfter": "2026-08-29T05:30:16Z"
+}

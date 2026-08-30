@@ -1,0 +1,15 @@
+@stackline/graceful-fs is a maintained continuation of graceful-fs 4.2.11.
+
+It is independently maintained and is not affiliated with or endorsed by the
+original graceful-fs maintainers.
+
+The baseline source was obtained from the exact ISC-licensed npm artifact:
+https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.11.tgz
+
+SHA-256:
+3961374aa161e6fed80d6f4b6aaf2fb7eafd2c9e5be34e865b375f0114dd099c
+
+The original copyright and ISC permission notice are preserved in LICENSE.
+Post-release changes in this package were independently implemented from
+public behavior reports and API contracts. The later BlueOak-licensed
+upstream repository state was not used as a source baseline.

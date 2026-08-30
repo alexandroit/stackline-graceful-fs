@@ -1,0 +1,89 @@
+{
+  "name": "@stackline/graceful-fs",
+  "version": "1.0.0",
+  "description": "A compatibility-first maintained continuation of graceful-fs with bounded filesystem retries.",
+  "license": "ISC",
+  "author": "Stackline maintainers",
+  "contributors": [
+    "Isaac Z. Schlueter",
+    "Ben Noordhuis",
+    "graceful-fs contributors"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexandroit/stackline-graceful-fs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alexandroit/stackline-graceful-fs/issues"
+  },
+  "homepage": "https://alexandro.net/docs/vanilla/graceful-fs/",
+  "type": "commonjs",
+  "main": "graceful-fs.js",
+  "types": "index.d.ts",
+  "engines": {
+    "node": ">=14.14"
+  },
+  "files": [
+    "graceful-fs.js",
+    "clone.js",
+    "polyfills.js",
+    "legacy-streams.js",
+    "index.d.ts",
+    "README.md",
+    "UPSTREAM_AUDIT.md",
+    "CHANGELOG.md",
+    "COMPATIBILITY_CONTRACT.md",
+    "MIGRATION.md",
+    "SECURITY.md",
+    "LICENSE",
+    "NOTICE",
+    "THIRD_PARTY_LICENSES.md"
+  ],
+  "scripts": {
+    "lint": "eslint graceful-fs.js clone.js polyfills.js legacy-streams.js scripts test",
+    "test": "node --test --test-concurrency=1 test/*.test.cjs",
+    "test:upstream": "node scripts/test-upstream.mjs",
+    "test:types": "node node_modules/typescript-3-9/bin/tsc -p test/types/tsconfig.legacy.json && node node_modules/typescript/bin/tsc -p test/types/tsconfig.json",
+    "test:packed": "node scripts/test-packed.mjs",
+    "test:pack-reproducibility": "node scripts/check-pack-reproducibility.mjs",
+    "test:downstream": "node scripts/test-downstreams.mjs",
+    "test:coverage": "c8 --all --include=graceful-fs.js --include=clone.js --check-coverage --lines 85 --functions 80 --branches 75 node --test --test-concurrency=1 test/*.test.cjs",
+    "test:security": "npm audit --omit=dev --audit-level=low",
+    "check:package": "publint && attw --pack .",
+    "check:licenses": "node scripts/check-licenses.mjs",
+    "check:sbom": "node scripts/check-sbom-model.mjs",
+    "check:release": "node scripts/check-release.mjs",
+    "check:prepack": "npm run lint && npm test && npm run test:types && npm run check:licenses && npm run check:release",
+    "test:closure": "node scripts/check-production-closure.mjs",
+    "check": "npm run check:prepack && npm run check:package && npm run check:sbom && npm run test:pack-reproducibility && npm run test:closure && npm run audit:dependencies && npm run audit:all && npm run audit:signatures",
+    "audit:dependencies": "npm audit --omit=dev --audit-level=low",
+    "audit:all": "npm audit --audit-level=low",
+    "audit:signatures": "npm audit signatures",
+    "artifact:prepare": "node scripts/create-artifact.mjs",
+    "prepack": "npm run check:prepack"
+  },
+  "keywords": [
+    "fs",
+    "filesystem",
+    "graceful-fs",
+    "EMFILE",
+    "ENFILE",
+    "retry",
+    "queue",
+    "stackline"
+  ],
+  "devDependencies": {
+    "@arethetypeswrong/cli": "0.18.5",
+    "@eslint/js": "10.0.1",
+    "@types/node": "14.18.63",
+    "c8": "12.0.0",
+    "eslint": "10.9.1",
+    "graceful-fs-upstream": "npm:graceful-fs@4.2.11",
+    "publint": "0.3.24",
+    "typescript-3-9": "npm:typescript@3.9.10",
+    "typescript": "5.9.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

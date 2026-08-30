@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "noEmit": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "ES2018",
+    "lib": ["ES2018"],
+    "types": ["node"],
+    "baseUrl": "../..",
+    "paths": {
+      "@stackline/graceful-fs": ["."]
+    }
+  },
+  "include": ["index.ts"]
+}
