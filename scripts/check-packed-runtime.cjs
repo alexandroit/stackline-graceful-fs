@@ -11,6 +11,7 @@ const root = path.resolve(__dirname, '..')
 const npmCommand = process.platform === 'win32' ? 'npm.cmd' : 'npm'
 const npmNode = process.env.STACKLINE_NPM_NODE
 const npmCli = process.env.STACKLINE_NPM_CLI
+const inheritedNpmCli = process.env.npm_execpath
 const temporary = fs.mkdtempSync(path.join(os.tmpdir(), 'stackline-gfs-packed-'))
 
 function run (command, args, options) {
@@ -19,14 +20,18 @@ function run (command, args, options) {
     encoding: 'utf8',
     stdio: 'pipe'
   }, options || {}))
-  if (result.status !== 0)
-    throw new Error(`${command} ${args.join(' ')} failed\n${result.stdout || ''}\n${result.stderr || ''}`)
+  if (result.status !== 0) {
+    const executionError = result.error ? `${result.error.stack || result.error}\n` : ''
+    throw new Error(`${command} ${args.join(' ')} failed (status=${result.status}, signal=${result.signal || 'none'})\n${executionError}${result.stdout || ''}\n${result.stderr || ''}`)
+  }
   return result
 }
 
 function runNpm (args, options) {
   if (npmNode && npmCli)
     return run(npmNode, [npmCli].concat(args), options)
+  if (inheritedNpmCli && /npm-cli\.js$/i.test(inheritedNpmCli))
+    return run(process.execPath, [inheritedNpmCli].concat(args), options)
   return run(npmCommand, args, options)
 }
 
