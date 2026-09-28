@@ -37,7 +37,7 @@ function digest (algorithm, bytes, encoding = 'hex') {
 }
 
 const npmVersion = run(npm, ['--version'])
-assert.equal(npmVersion, '10.8.2', 'artifact preparation requires the exact npm version used by CI')
+assert.equal(npmVersion, '11.19.0', 'artifact preparation requires the exact npm version used by CI')
 
 const sourceCommit = git(['rev-parse', '--verify', 'HEAD'])
 assert.match(sourceCommit, /^[0-9a-f]{40}$/, 'artifact preparation requires a full Git HEAD')
