@@ -12,7 +12,7 @@ assert.equal(sbom.bomFormat, 'CycloneDX')
 assert.equal(sbom.specVersion, '1.5')
 assert.equal(sbom.metadata.timestamp, timestamp)
 assert.equal(sbom.metadata.component.name, '@stackline/graceful-fs')
-assert.equal(sbom.metadata.component.version, '1.0.0')
+assert.equal(sbom.metadata.component.version, '1.0.1')
 assert.deepEqual(sbom.metadata.component.licenses, [{ license: { id: 'ISC' } }])
 assert.equal(
   sbom.metadata.component.externalReferences[0].url,
@@ -27,6 +27,6 @@ assert.equal(
   '0'
 )
 assert.deepEqual(sbom.components, [])
-assert.deepEqual(sbom.dependencies, [{ ref: '@stackline/graceful-fs@1.0.0', dependsOn: [] }])
+assert.deepEqual(sbom.dependencies, [{ ref: '@stackline/graceful-fs@1.0.1', dependsOn: [] }])
 
 console.log('CycloneDX dependency-free ISC root and exact VCS commit model passed.')

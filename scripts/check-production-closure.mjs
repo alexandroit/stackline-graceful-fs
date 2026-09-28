@@ -81,14 +81,14 @@ async function verifyConsumer (tarball, alias) {
   assert.equal(production.length, 1)
   if (production[0][1].name !== undefined)
     assert.equal(production[0][1].name, '@stackline/graceful-fs')
-  assert.equal(production[0][1].version, '1.0.0')
+  assert.equal(production[0][1].version, '1.0.1')
 }
 
 try {
   const pack = run(['pack', '--silent', '--json', '--ignore-scripts', '--pack-destination', temporary], root)
   const details = JSON.parse(pack.stdout.trim())[0]
   assert.equal(details.name, '@stackline/graceful-fs')
-  assert.equal(details.version, '1.0.0')
+  assert.equal(details.version, '1.0.1')
   const tarball = path.join(temporary, details.filename)
 
   await verifyConsumer(tarball, false)

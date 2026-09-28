@@ -9,7 +9,7 @@ const decision = JSON.parse(await readFile(path.join(root, 'decision.json'), 'ut
 const memory = await readFile(path.join(root, 'PROJECT_MEMORY.md'), 'utf8')
 
 assert.equal(pkg.name, '@stackline/graceful-fs')
-assert.equal(pkg.version, '1.0.0')
+assert.equal(pkg.version, '1.0.1')
 assert.equal(pkg.main, 'graceful-fs.js')
 assert.equal(pkg.types, 'index.d.ts')
 assert.equal(pkg.engines.node, '>=14.14')

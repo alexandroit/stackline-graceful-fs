@@ -51,7 +51,7 @@ try {
   const second = await pack(secondDirectory)
 
   assert.equal(first.details.name, '@stackline/graceful-fs')
-  assert.equal(first.details.version, '1.0.0')
+  assert.equal(first.details.version, '1.0.1')
   assert.equal(first.details.entryCount, first.details.files.length)
   assert.deepEqual(second.details, first.details)
   assert.deepEqual(second.bytes, first.bytes)

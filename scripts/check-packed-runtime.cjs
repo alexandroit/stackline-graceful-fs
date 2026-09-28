@@ -112,7 +112,7 @@ function installAndProbe (tarball, dependencyName) {
 
   const installed = JSON.parse(fs.readFileSync(path.join(consumer, 'node_modules', dependencyName, 'package.json'), 'utf8'))
   assert.strictEqual(installed.name, '@stackline/graceful-fs')
-  assert.strictEqual(installed.version, '1.0.0')
+  assert.strictEqual(installed.version, '1.0.1')
 }
 
 try {

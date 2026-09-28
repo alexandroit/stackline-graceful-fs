@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 
 const packageName = '@stackline/graceful-fs'
-const packageVersion = '1.0.0'
+const packageVersion = '1.0.1'
 const packageLicense = 'ISC'
 
 const componentRef = (name, version) => `${name}@${version}`
@@ -36,7 +36,7 @@ export function createSbom ({ manifest, sourceCommit, timestamp }) {
         name: manifest.name,
         version: manifest.version,
         licenses: [{ license: { id: packageLicense } }],
-        purl: 'pkg:npm/%40stackline/graceful-fs@1.0.0',
+        purl: 'pkg:npm/%40stackline/graceful-fs@1.0.1',
         externalReferences: [{ type: 'vcs', url: vcsUrl }],
         properties: [
           { name: 'stackline:source-commit', value: sourceCommit },

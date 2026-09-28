@@ -62,7 +62,7 @@ try {
 
 const manifest = JSON.parse(await readFile(new URL('package.json', root), 'utf8'))
 assert.equal(manifest.name, '@stackline/graceful-fs')
-assert.equal(manifest.version, '1.0.0')
+assert.equal(manifest.version, '1.0.1')
 assert.equal(manifest.license, 'ISC')
 assert.deepEqual(manifest.dependencies || {}, {}, 'release package must have zero runtime dependencies')
 assert.deepEqual(manifest.optionalDependencies || {}, {}, 'release package must have zero optional dependencies')
@@ -80,7 +80,7 @@ try {
     staging
   ]))
   assert.equal(pack.name, '@stackline/graceful-fs')
-  assert.equal(pack.version, '1.0.0')
+  assert.equal(pack.version, '1.0.1')
   assert.equal(pack.entryCount, pack.files.length)
 
   const tarball = path.join(staging, pack.filename)
@@ -120,7 +120,7 @@ try {
     version: pack.version
   }, null, 2)}\n`)
   await writeFile(path.join(staging, 'RELEASE_NOTES.md'), [
-    '# @stackline/graceful-fs 1.0.0 release candidate',
+    '# @stackline/graceful-fs 1.0.1 release candidate',
     '',
     'Compatibility-first maintained continuation of graceful-fs 4.2.11 with',
     'bounded filesystem retries, first-party types, and preserved ISC licensing.',

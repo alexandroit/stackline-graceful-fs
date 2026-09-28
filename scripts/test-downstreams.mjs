@@ -112,7 +112,7 @@ async function verifyInstalled (repository) {
     'utf8'
   ))
   assert.equal(installed.name, '@stackline/graceful-fs')
-  assert.equal(installed.version, '1.0.0')
+  assert.equal(installed.version, '1.0.1')
   const tree = run(npmCommand, ['ls', 'graceful-fs', '--all', '--json'], repository).stdout
   return JSON.parse(tree)
 }
