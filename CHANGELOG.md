@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1] - 2026-09-28
+
+- Organize package documentation, preserve API and migration examples, and add Stackline community links.
+- Improve package discovery keywords with precise domain terms and `stackline`.
+- Pin GitHub Actions release tooling and require an explicit missing-version response before publication.
+
+
 ## 1.0.0 - 2026-08-29
 
 - Continue the exact ISC-licensed graceful-fs 4.2.11 contract.

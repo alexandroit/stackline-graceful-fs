@@ -1,6 +1,6 @@
 {
   "name": "@stackline/graceful-fs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A compatibility-first maintained continuation of graceful-fs with bounded filesystem retries.",
   "license": "ISC",
   "author": "Stackline maintainers",
@@ -66,11 +66,12 @@
     "fs",
     "filesystem",
     "graceful-fs",
-    "EMFILE",
-    "ENFILE",
+    "emfile",
+    "enfile",
     "retry",
     "queue",
-    "stackline"
+    "stackline",
+    "file-descriptors"
   ],
   "devDependencies": {
     "@arethetypeswrong/cli": "0.18.5",
