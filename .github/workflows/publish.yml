@@ -70,3 +70,5 @@ jobs:
           if-no-files-found: error
       - name: Publish the exact artifact with OIDC and provenance
         run: npm publish ./artifact/*.tgz --access public --provenance --ignore-scripts --registry=https://registry.npmjs.org
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.STACKLINE_NPM_PUBLISH_TOKEN }}
