@@ -1,6 +1,6 @@
 {
   "name": "@stackline/graceful-fs",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A compatibility-first maintained continuation of graceful-fs with bounded filesystem retries.",
   "license": "ISC",
   "author": "Stackline maintainers",
@@ -63,14 +63,17 @@
     "prepack": "npm run check:prepack"
   },
   "keywords": [
+    "stackline",
+    "npm-package",
+    "graceful-fs",
+    "typescript",
+    "nodejs",
     "fs",
     "filesystem",
-    "graceful-fs",
     "emfile",
     "enfile",
     "retry",
     "queue",
-    "stackline",
     "file-descriptors"
   ],
   "devDependencies": {
