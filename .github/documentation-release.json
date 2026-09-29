@@ -4,7 +4,7 @@
     {
       "name": "@stackline/graceful-fs",
       "path": "README.md",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "baselineVersion": "1.0.1",
       "keywords": [
         "stackline",
@@ -23,8 +23,8 @@
       "homepage": "https://alexandro.net/docs/vanilla/graceful-fs/",
       "baselineTarball": "https://registry.npmjs.org/@stackline/graceful-fs/-/graceful-fs-1.0.1.tgz",
       "baselineIntegrity": "sha512-hpR/SpA9iQsccLMhxmZepeVcvOyMuwtcSMQYi0OrmBcyxZ89qHhwI+f5HjqAIX371SO+VzRAq9n8U3r/F3s2yw==",
-      "expectedSha512": "6d2d16fef66529499343d38e69d2bf271ec5b1e0847393aef491ef702fc213a5c5c87e7f9e87780979c9e2bf27573f61b82fb2af80df517bc3a00f583d5637e6",
-      "tag": "docs-stackline-graceful-fs-v1.0.2"
+      "expectedSha512": "9db172be8f99bdea2d93a0dfe86efbe93d0c0bcdf7b977f2ce2f47bf77ce7020178a48cb43ccb517d4904c0fc24193d2d80bf9c4873df4980f69a184f2a36de4",
+      "tag": "docs-stackline-graceful-fs-v1.0.3"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "name": "@stackline/graceful-fs",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A compatibility-first maintained continuation of graceful-fs with bounded filesystem retries.",
   "license": "ISC",
   "author": "Stackline maintainers",
