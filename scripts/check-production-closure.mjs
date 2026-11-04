@@ -6,6 +6,7 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
+const manifest = JSON.parse(await readFile(path.join(root, 'package.json'), 'utf8'))
 const inheritedNpmCli = process.env.npm_execpath
 const useInheritedNpmCli = inheritedNpmCli && /npm-cli\.js$/iu.test(inheritedNpmCli)
 const npmCommand = useInheritedNpmCli
@@ -81,14 +82,14 @@ async function verifyConsumer (tarball, alias) {
   assert.equal(production.length, 1)
   if (production[0][1].name !== undefined)
     assert.equal(production[0][1].name, '@stackline/graceful-fs')
-  assert.equal(production[0][1].version, '1.0.1')
+  assert.equal(production[0][1].version, manifest.version)
 }
 
 try {
   const pack = run(['pack', '--silent', '--json', '--ignore-scripts', '--pack-destination', temporary], root)
   const details = JSON.parse(pack.stdout.trim())[0]
   assert.equal(details.name, '@stackline/graceful-fs')
-  assert.equal(details.version, '1.0.1')
+  assert.equal(details.version, manifest.version)
   const tarball = path.join(temporary, details.filename)
 
   await verifyConsumer(tarball, false)

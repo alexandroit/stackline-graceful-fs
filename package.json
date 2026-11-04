@@ -81,13 +81,25 @@
     "@eslint/js": "10.0.1",
     "@types/node": "14.18.63",
     "c8": "12.0.0",
-    "eslint": "10.9.1",
+    "eslint": "10.14.0",
     "graceful-fs-upstream": "npm:graceful-fs@4.2.11",
     "publint": "0.3.24",
-    "typescript-3-9": "npm:typescript@3.9.10",
-    "typescript": "5.9.3"
+    "typescript": "5.9.3",
+    "typescript-3-9": "npm:typescript@3.9.10"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "overrides": {
+    "eslint": {
+      "minimatch": "11.0.4"
+    },
+    "@eslint/config-array": {
+      "minimatch": "11.0.4"
+    },
+    "test-exclude": {
+      "glob": "14.0.3",
+      "minimatch": "11.0.4"
+    }
   }
 }

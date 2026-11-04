@@ -7,6 +7,7 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const root = fileURLToPath(new URL('../', import.meta.url))
+const manifest = JSON.parse(await readFile(path.join(root, 'package.json'), 'utf8'))
 const npm = process.platform === 'win32' ? 'npm.cmd' : 'npm'
 
 function runNpm (arguments_) {
@@ -51,7 +52,7 @@ try {
   const second = await pack(secondDirectory)
 
   assert.equal(first.details.name, '@stackline/graceful-fs')
-  assert.equal(first.details.version, '1.0.1')
+  assert.equal(first.details.version, manifest.version)
   assert.equal(first.details.entryCount, first.details.files.length)
   assert.deepEqual(second.details, first.details)
   assert.deepEqual(second.bytes, first.bytes)

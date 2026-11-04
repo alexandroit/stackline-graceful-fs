@@ -1,14 +1,13 @@
 import assert from 'node:assert/strict'
 
 const packageName = '@stackline/graceful-fs'
-const packageVersion = '1.0.1'
 const packageLicense = 'ISC'
 
 const componentRef = (name, version) => `${name}@${version}`
 
 export function createSbom ({ manifest, sourceCommit, timestamp }) {
   assert.equal(manifest.name, packageName, 'SBOM package name drifted')
-  assert.equal(manifest.version, packageVersion, 'SBOM package version drifted')
+  assert.match(manifest.version, /^\d+\.\d+\.\d+(?:-[0-9A-Za-z.-]+)?$/, 'SBOM package version must be valid')
   assert.equal(manifest.license, packageLicense, 'SBOM package license drifted')
   assert.deepEqual(manifest.dependencies || {}, {}, 'runtime dependencies drifted')
   assert.deepEqual(manifest.optionalDependencies || {}, {}, 'optional runtime dependencies drifted')
@@ -36,7 +35,7 @@ export function createSbom ({ manifest, sourceCommit, timestamp }) {
         name: manifest.name,
         version: manifest.version,
         licenses: [{ license: { id: packageLicense } }],
-        purl: 'pkg:npm/%40stackline/graceful-fs@1.0.1',
+        purl: `pkg:npm/%40stackline/graceful-fs@${manifest.version}`,
         externalReferences: [{ type: 'vcs', url: vcsUrl }],
         properties: [
           { name: 'stackline:source-commit', value: sourceCommit },

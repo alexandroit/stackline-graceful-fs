@@ -8,6 +8,7 @@ const os = require('os')
 const path = require('path')
 
 const root = path.resolve(__dirname, '..')
+const manifest = require('../package.json')
 const npmCommand = process.platform === 'win32' ? 'npm.cmd' : 'npm'
 const npmNode = process.env.STACKLINE_NPM_NODE
 const npmCli = process.env.STACKLINE_NPM_CLI
@@ -112,7 +113,7 @@ function installAndProbe (tarball, dependencyName) {
 
   const installed = JSON.parse(fs.readFileSync(path.join(consumer, 'node_modules', dependencyName, 'package.json'), 'utf8'))
   assert.strictEqual(installed.name, '@stackline/graceful-fs')
-  assert.strictEqual(installed.version, '1.0.1')
+  assert.strictEqual(installed.version, manifest.version)
 }
 
 try {
