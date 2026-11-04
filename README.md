@@ -10,7 +10,7 @@
 
 **[Documentation](https://alexandro.net/docs/vanilla/graceful-fs/)** | **[npm](https://www.npmjs.com/package/@stackline/graceful-fs)** | **[Issues](https://github.com/alexandroit/stackline-graceful-fs/issues)** | **[Repository](https://github.com/alexandroit/stackline-graceful-fs)**
 
-**Current package version:** `1.0.3`
+**Current package version:** `1.0.4`
 
 ---
 
@@ -42,7 +42,7 @@ and [UPSTREAM_AUDIT.md](https://github.com/alexandroit/stackline-graceful-fs/blo
 
 | Item | Value |
 | --- | --- |
-| Package | `@stackline/graceful-fs@1.0.3` |
+| Package | `@stackline/graceful-fs@1.0.4` |
 | Node.js runtime | `>=14.14` |
 | CommonJS / primary entry | `graceful-fs.js` |
 | Type declarations | `index.d.ts` |

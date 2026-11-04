@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.4 — 2026-11-04
+
+- Publish patched development dependency metadata and scoped overrides for vulnerable glob matching dependencies.
+- Run build and publication workflows on patched supported Node.js releases.
+- Derive SBOM, package, and release validation from the current manifest version.
+
 ## [1.0.1] - 2026-09-28
 
 - Organize package documentation, preserve API and migration examples, and add Stackline community links.
